@@ -1,5 +1,7 @@
 # ATLAS ONU — Arqueología documental de Naciones Unidas
 
+*[Read in English](README.en.md)*
+
 Plataforma académica independiente para investigar los procedimientos especiales de la ONU y recuperar sus documentos originales **con verificación contra la fuente oficial**.
 
 **Para quién:** estudiantes, investigadoras e investigadores y organizaciones que necesitan encontrar y citar documentos del sistema de derechos humanos de la ONU (mandatos, tratados y comités, países, historia, siglas) sin perderse en su catalogación.
