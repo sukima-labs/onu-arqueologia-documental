@@ -7670,7 +7670,7 @@
   ]
  },
  "hojaruta": {
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-14",
   "bloques": [
    {
     "id": "disponible",
@@ -7865,6 +7865,13 @@
       "issues": [
        262
       ]
+     },
+     {
+      "t": "Títulos completos en la línea de tiempo de los países",
+      "x": "Algunos títulos de documentos llegan cortados desde la Biblioteca Digital de la ONU, y un nombre de mandato trae una errata de la fuente. Se completan o se marcan como incompletos en la fuente.",
+      "issues": [
+       331
+      ]
      }
     ]
    },
@@ -7878,15 +7885,7 @@
     "id": "pendiente",
     "titulo": "Pendiente",
     "intro": "En la cola de trabajo, por orden aproximado. Una tarea cada vez.",
-    "items": [
-     {
-      "t": "Títulos completos en la línea de tiempo de los países",
-      "x": "Algunos títulos de documentos llegan cortados desde la Biblioteca Digital de la ONU, y un nombre de mandato trae una errata de la fuente. Se completan o se marcan como incompletos en la fuente.",
-      "issues": [
-       331
-      ]
-     }
-    ]
+    "items": []
    },
    {
     "id": "ideas",
