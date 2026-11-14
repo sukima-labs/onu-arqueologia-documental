@@ -18,6 +18,6 @@ Criterios del proyecto (31-10-2026). Cambiarlos exige una tarea en la cola y una
 4. **Nada de terceros.** Ningún script, fuente o servicio externo que registre a quien visita (ver la regla gratis, abierto y privado en la cola).
 5. **Derecho de rectificación:** quien aparezca en una ficha puede pedir corrección o retirada escribiendo en privado al autor (ver `SECURITY.md`).
 
-## Decisiones pendientes del fundador
-- **Reescribir el historial** para quitar la pantalla EPU retirada (PR 67 y 69) con `git filter-repo`. Es destructivo (cambia todos los hashes) y no se hace sin su confirmación. El repositorio es público desde el 06-11-2026 y esa pantalla sigue en su historial (las reescrituras de ese día solo cambiaron la autoría).
-- **Registro de búsquedas sin resultado.** Se mantiene en evaluación: no se implementa hasta que el fundador acepte los criterios 2 y 4.
+## Decisiones tomadas (14-11-2026, aprobó Patricio, #244)
+- **El historial no se reescribe.** La pantalla «Prepara tu EPU» (PR 67 y 69) sigue en el historial público, sin datos personales: se retiró para conservarla en privado. Reescribir con `git filter-repo` no la quitaría de la vista, porque GitHub guarda las referencias de esos PR (`refs/pull/67/head` y `refs/pull/69/head`) y no se pueden borrar desde el repositorio; en cambio, cambiaría todos los hashes y obligaría a volver a clonar cada copia.
+- **No se registran las búsquedas sin resultado.** Sería una función nueva, y el alcance está cerrado (#337); la idea queda anotada allí. El criterio 2 se mantiene por si algún día se retoma.
