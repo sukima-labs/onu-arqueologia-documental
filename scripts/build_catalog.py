@@ -48,6 +48,20 @@ def acto_from(r, rol, anio, por_en, por_es, sym_src):
         a['aviso'] = f"«{sym_src}» todavía no se ha cotejado en la Biblioteca Digital ONU: su búsqueda automática está suspendida porque el robots.txt del sitio la prohíbe (T56)."
     return a
 
+# T101 (#331): erratas del índice de OHCHR en español. Se corrigen en nuestros nombres y se deja escrito en
+# «observaciones»; la copia de la fuente (data/fuentes/ohchr_*_es.json) no se toca.
+ERRATAS_ES = {'Experto independiento': 'Experto independiente'}
+def corregir_errata(ms):
+    malas = [m for m in ERRATAS_ES if m in ms['titulo'] or m in (ms.get('etiqueta') or '')]
+    if not malas: return ms
+    ms = dict(ms)
+    for m in malas:
+        ms['titulo'] = ms['titulo'].replace(m, ERRATAS_ES[m])
+        if ms.get('etiqueta'): ms['etiqueta'] = ms['etiqueta'].replace(m, ERRATAS_ES[m])
+    nota = 'El índice de OHCHR en español escribe «' + '», «'.join(malas) + '»; aquí se corrige la errata.'
+    ms['observaciones'] = (ms.get('observaciones') or '').strip() + (' ' if ms.get('observaciones') else '') + nota
+    return ms
+
 recs, index = [], {}
 for kind in ('TM', 'CM'):
     en, es = L(f'ohchr_{kind}_en')['mandatos'], L(f'ohchr_{kind}_es')['mandatos']
@@ -62,6 +76,7 @@ for kind in ('TM', 'CM'):
         assert lst, ('sin pareja ES', me['titulo'], key(me))
         pairs.append((me, lst.pop(0)))
     for me, ms in pairs:
+        ms = corregir_errata(ms)
         t = me['titulo']; actos = []
         c = vmap.get((t, 'creado'))
         if c: actos.append(acto_from(c[0], 'creación', me['creado_anio'], me['creado_por'], ms['creado_por'], me['creado_simbolo']))
